@@ -1,0 +1,25 @@
+<div class="todo-component" [id]="todoList.id">
+
+    <div class="todo-component-header">
+        <h3 class="todo-component-title">{{todoList.title}}</h3>
+        <div (click)="deleteTodoList()">
+            <mat-icon fontIcon="delete" style="cursor: pointer; font-size: 1.5em;"></mat-icon>
+        </div>
+    </div>
+
+    <div class="todo-component-add">
+        <div>
+            <button class="todo-component-add-btn" (click)="addTodo()">
+                <i class="material-icons">add</i>
+            </button>
+        </div>
+    </div>
+
+    <div class="todo-component-container">
+        <div *ngIf="todoList.todos.length === 0">
+            <div class="todo-component-placeholder"></div>
+        </div>
+        <app-todo *ngFor="let todo of todoList.todos" [todo]="todo" [todoListId]="todoList.id" (_deleteTodoEvent)="deleteTodo($event)"/>
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+<div class="todo-main-container">
+
+    <div class="todo-main-header">
+
+        <div class="todo-header">
+            <h1 class="todo-header-text">Tasks List</h1>
+            <div class="todo-header-add">
+                <input class="todo-header-title" placeholder="Enter Title" [(ngModel)]="title">
+                <button class="todo-add-btn" (click)="createTodoList()">+</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="todo-contain">
+        <div *ngIf="appData === null || appData.todoList.length === 0">No Todo</div>
+        <app-todo-component *ngFor="let todo_list of appData?.todoList" [todoList]="todo_list" (_deleteEvent)="deleteTodoList($event)"/>
+    </div>
+
+</div>

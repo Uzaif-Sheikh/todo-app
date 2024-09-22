@@ -1,0 +1,27 @@
+<mat-expansion-panel class="todo-main" (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+    <mat-expansion-panel-header>
+        <mat-panel-title class="todo-title-h3" [ngStyle]="{'text-decoration': textDecoration}">
+            {{todo.title}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="todo-details">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Enter Title" [(ngModel)]="todo.title" [disabled]="todo.is_completed">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Enter Description" [(ngModel)]="todo.description" [disabled]="todo.is_completed">
+        </mat-form-field>
+        <div class="todo-actions">
+            <div class="todo-action-item" (click)="deleteTodo()">
+                <i class="material-icons">delete</i>
+            </div>
+            <div class="todo-action-item" *ngIf="!todo.is_completed" (click)="editTodo()">
+                <i class="material-icons">edit</i>
+            </div>
+            <div class="todo-action-item" *ngIf="!todo.is_completed" (click)="doneTodo()">
+                <i class="material-icons">done_outline</i>
+            </div>
+        </div>
+    </div>
+</mat-expansion-panel>
+    
