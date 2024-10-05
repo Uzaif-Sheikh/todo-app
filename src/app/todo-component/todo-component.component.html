@@ -19,7 +19,18 @@
         <div *ngIf="todoList.todos.length === 0">
             <div class="todo-component-placeholder"></div>
         </div>
-        <app-todo *ngFor="let todo of todoList.todos" [todo]="todo" [todoListId]="todoList.id" (_deleteTodoEvent)="deleteTodo($event)"/>
+        <div *ngIf="todoNotDone.length !== 0">
+			<div class="todo-component-label-container">
+				<div class="todo-label-cls">To Be Completed</div>
+			</div>
+			<app-todo *ngFor="let todo of todoNotDone" [todo]="todo" [todoListId]="todoList.id" (_todoCompletedEvent)="todoTaskComplete($event)" (_deleteTodoEvent)="deleteTodo($event)"/>
+        </div>
+        <div *ngIf="todoDone.length !== 0">
+			<div class="todo-component-label-container">
+				<div class="todo-label-cls-com">Completed</div>
+			</div>
+			<app-todo *ngFor="let todo of todoDone" [todo]="todo" [todoListId]="todoList.id" (_deleteTodoEvent)="deleteTodo($event)"/>
+		</div>
     </div>
 
 </div>

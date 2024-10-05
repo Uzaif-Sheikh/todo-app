@@ -35,6 +35,29 @@
     margin: 4px;
 }
 
+.todo-component-label-container {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.todo-label-cls {
+	margin: 5px;
+	padding: 4px;
+	display: inline;
+	background-color: #eb7836;
+	border-radius: 10px;
+	color: #000000;
+}
+
+.todo-label-cls-com {
+	margin: 5px;
+	padding: 4px;
+	display: inline;
+	background-color: #36eb66;
+	border-radius: 10px;
+	color: #000000;
+}
+
 .todo-component-add-btn {
     padding-left: 10px;
     padding-right: 10px;
