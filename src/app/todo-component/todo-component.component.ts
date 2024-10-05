@@ -52,9 +52,8 @@ export class TodoComponentComponent implements OnInit {
 	});
   }
 
-  todoTaskComplete(todoId: number) {
-    this.todoNotDone = this.todoNotDone.filter(el => el.id !== todoId); 
-	const todo: todo | undefined = this.todoList.todos.find(el => el.id === todoId);
+  todoTaskComplete(todo: todo) {
+    this.todoNotDone = this.todoNotDone.filter(el => el.id !== todo.id); 
 	if (todo) {
 		this.todoDone.push(todo);
 	}

@@ -24,7 +24,7 @@ export class TodoComponent implements OnInit {
 
   @Output() _deleteTodoEvent = new EventEmitter<number>();
 
-  @Output() _todoCompletedEvent = new EventEmitter<number>();
+  @Output() _todoCompletedEvent = new EventEmitter<todo>();
 
   constructor(private localStorage: LocalStorageService) {}
 
@@ -48,7 +48,7 @@ export class TodoComponent implements OnInit {
     this.todo.is_completed = true;
     this.localStorage.doneTodo(this.todo.id, this.todoListId);
     this.textDecoration = "line-through";
-	this._todoCompletedEvent.emit(this.todo.id);
+	this._todoCompletedEvent.emit(this.todo);
   }
 
 }
